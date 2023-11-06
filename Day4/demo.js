@@ -40,7 +40,12 @@ class student
     }
 }
 
-let s1 = new student("Deekshith", 21);
-s1.getName();
-let s2 = new student("Pavan", 20);
-s2.getName();
+let s1 = new student("Deekshith", 10);
+let s2 = new student("Pavan", 15);
+let s3 = new student("Yashwanth", 20);
+let s4 = new student("Rajesh", 25);
+let s5 = new student("Girish", 30);
+
+let stu = [s1, s2, s3, s4, s5];
+let new_s = stu.filter((s) => s.age > 20);
+console.log(new_s);
