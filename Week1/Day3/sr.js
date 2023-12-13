@@ -101,16 +101,129 @@
 // let avg = sum / l
 // alert(`The total Average is ${avg}`)
 
+
+
+
+
 //reduce the each value of the elements in an array by 10%
 
 
-let prices = [350, 450, 850, 900]
-for(let p = 0; p < prices.length; p++) {
-    prices[p] = prices[p] - prices[p]*0.1
+// let prices = [350, 450, 850, 900]
+// for(let p = 0; p < prices.length; p++) {
+//     prices[p] = prices[p] - prices[p]*0.1
+// }
+// console.log(prices);
+
+
+
+
+
+//slice()
+
+// let arr = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k"]
+
+// console.log(arr.slice(4))
+// console.log(arr.slice(4,6))
+// console.log(arr.slice(0,6))
+// console.log(arr.slice(0,4))
+
+
+
+//splice()
+
+// let arr = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k"]
+// console.log(arr.splice(4,arr.length));
+// console.log(arr.toString());
+
+
+
+
+
+// let arr = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k"]
+// arr.forEach((n) => console.log(n))
+// arr.forEach((n) => console.log(n), 10, arr)
+
+
+
+
+
+
+// let arr12 = ["a", "b", "c", "d", "e"]
+// let Reduce_arr = arr12.reduce((acc,ele,ind,arr)=>{
+// //you must return something that will be stored and used as acc value in next itereation
+// return acc+" "+ele
+// },here u can give initial value of acc
+// )
+// console.log(Reduce_arr);
+
+
+// let product = [
+//     {name: "Vegetable", price: 20.40},
+//     {name: "Fruit", price:60.30},
+//     {name: "Grocery", price:60.30}
+// ]
+// let total_price = product.reduce((acc,ele,ind,arr)=>{
+//     console.log(typeof acc)
+//     // console.log(typeof acc.price)
+//     console.log(typeof ele.price)
+//     return acc+ele.price
+// },0)//here zero is assigned as initial value for acc
+// console.log(total_price);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function capitalize(sentence) {
+
+    let words =[...sentence]
+
+    words[0] = words[0].toUpperCase()
+
+    for (let i = 0; i < words.length; i++) {
+        if(words[i] === ' ') {
+      words[i+1] = words[i+1].toUpperCase()
+    }
+  }
+
+  let ans = ""
+  words.forEach((i) => ans+=i)
+  return ans
 }
-console.log(prices);
+  
+  const s = "this is a sentence";
+  let capital = capitalize(s);
+  
+  console.log(capital);
 
 
 
 
+  
 
+let c = capital.split(" ")
+console.log(capital);
+
+let x = capital.substring(2,4)
+console.log(x);
+
+let m = capital.substr(2,2)
+console.log(m);
+
+let f = capital.replaceAll("e", "")
+console.log(f);
+
+console.log(f.concat(x));
