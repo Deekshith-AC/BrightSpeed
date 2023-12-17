@@ -59,3 +59,108 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function FETCH_GET(){
+//     fetch("https://api.imgflip.com/get_memes")
+//     .then(res => res.json())
+//     .then(data => console.log(data))
+//     .catch(err => console.error(err))
+// }
+
+
+// let val = {"title": "Something",
+// "author": "I Typed"}
+
+// function FETCH_POST(){
+//     fetch("http://localhost:3000/posts/",{
+//         method: "POST",
+//         headers: {'Content-type': 'application/json'},
+//         body: JSON.stringify(val)
+//     })
+//     .then(res => res.json())
+//     .then(data => console.log(data))
+//     .catch(err => console.error(err))
+// }
+
+// let val2 = {"title": "################3#########",
+// "author": "I Typed"}
+// let id = 3
+// function FETCH_PUT(){
+//     fetch(`http://localhost:3000/posts/${id}`,{
+//         method: "PUT",
+//         headers: {'Content-type': 'application/json'},
+//         body: JSON.stringify(val2)
+//     })
+//     .then(res => res.json())
+//     .then(data => console.log(data))
+//     .catch(err => console.error(err))
+// }
+
+
+
+// var id2 = 3
+// function FETCH_DELETE(){
+//     console.log(id2)
+//     id2++
+//     console.log(id2)
+//     fetch(`http://localhost:3000/posts/${id2}`,{
+//         method: "DELETE",
+//         headers: {'Content-type': 'application/json'},
+//     })
+//     .then(res => res.json())
+//     .then(data => console.log(data))
+//     .catch(err => console.error(err))
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function fun1() {
+//     fetch("https://api.imgflip.com/get_memes")
+//       .then(res => {
+//         return res.json();
+//       })
+//       .then(data => console.log(data))
+//   }
+  
+//   fun1();  
+
+
+
+
+
+
+
+
+
