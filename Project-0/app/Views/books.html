@@ -1,0 +1,92 @@
+<div>
+
+  <!-- Navigation Bar -->
+  <div class="nav-bar">
+    <div class="menu">
+      <!-- Logout and UserName -->
+      <ul>
+        <li><span class="logout" ng-click="logout()">Logout</span></li>
+        <li><span class="uname">{{UserDisplyName}}</span></li>
+      </ul>
+    </div>
+    <!-- Search Box -->
+    <div class="search-box">
+      <input type="text" ng-model="searchBook" class="tbox" placeholder="Type to search..." />
+      <button ng-click="searchBookFun()" class="btn"><i class="fas fa-search" style="color: white;"></i></button>
+    </div>
+  </div>
+
+
+
+
+
+
+  <div class="container">
+    <div class="columns is-multiline p-0 pt-6 last">
+      <div class="column is-full">
+        <p class="has-text-white">Action Movies Collection</p>
+      </div>
+      <span  ng-show="displaySearch">
+        <span class="proper column is-one-quarter" ng-repeat="RA in searchedBookResult"
+          ng-click="particularBook(RA.isbn[0])">
+          <img src="http://covers.openlibrary.org/b/isbn/{{RA.isbn[0]}}-M.jpg" alt="{{RA.title}}">
+        </span>
+      </span>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+  <div class="dashboard">
+    <div class="Loading" ng-show="isLoading">
+      <p class="TextLoading">(Please Wait &#x1F64F;)Loading...</p>
+    </div>
+
+    <span class="proper" ng-show="displaySearch">
+      <span style="display: flex;" ng-repeat="RA in searchedBookResult" class="column is-one-quarter"
+        ng-click="particularBook(RA.isbn[0])">
+        <img class="image" src="http://covers.openlibrary.org/b/isbn/{{RA.isbn[0]}}-M.jpg">
+      </span>
+    </span>
+  </div>
+</div> -->

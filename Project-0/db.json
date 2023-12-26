@@ -1,0 +1,21 @@
+{
+  "users": [
+    {
+      "fullName": "Deekshith A C",
+      "email": "deekshith.a.c.4444@gmail.com",
+      "password": "Deekshith@2002",
+      "cPassword": "Deekshith@2002",
+      "id": 1
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "posts": [
+    {
+      "name": "Deekshith",
+      "pass": "123456",
+      "email": "deekshith.a.c.4444@gmail.com",
+      "id": 1
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

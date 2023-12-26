@@ -1,5 +1,5 @@
 var app = angular.module("myApp", []);
-app.controller("myCtrl", [ "$scope","Service",function($scope,Service){
+app.controller("myCtrl", [ "$scope","Service",function(s,Service){
 
 
 
@@ -32,9 +32,9 @@ app.controller("myCtrl", [ "$scope","Service",function($scope,Service){
 
     $scope.submit = function(){
       var p = {}
-      p.name = $scope.name
-      p.pass = $scope.pass
-      p.email = $scope.email
+      p.name = s.name
+      p.pass = s.pass
+      p.email = s.email
         Service.add(p)
 
     }
