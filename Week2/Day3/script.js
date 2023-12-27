@@ -53,6 +53,22 @@ app.controller("myCtrl", [ "$scope","Service",function(s,Service){
 
 
 
+function cb(){
+  console.log("Hello World!");
+}
+
+higherOrderFun(cb);
+
+function higherOrderFun(a){
+  a();
+}
+
+
+
+<h1 ng-repeat="It in Array | orderBy: 'name'">Hello World!</h1>
+
+ng-click
+
 
 
    

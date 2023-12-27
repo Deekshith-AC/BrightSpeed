@@ -7,9 +7,10 @@
       <ul>
         <li><span class="logout" ng-click="logout()">Logout</span></li>
         <li>
-          <select ng-show="sortingBtn" ng-model="selectedItem">
-            <option ng-repeat="ite in items" value="">{{ite}}</option>
+          <select class="custom-dropdown" ng-show="sortingDD" ng-model="selectedItem">
+            <option ng-repeat="ite in Sitems" value="{{ite}}">{{ite}}</option>
           </select>
+          <button ng-show="sortingDD" class="SortClkBtn" type="button" ng-click="SortingFun()">sort</button>
         </li>
         <li><span class="uname">{{UserDisplyName}}</span></li>
       </ul>
@@ -31,10 +32,9 @@
       <div class="column is-full">
         <p class="has-text-white">.</p>
       </div>
-      <span ng-show="displaySearch">
-        <span class="proper column is-one-quarter" ng-repeat="RA in searchedBookResult | orderBy: sortValue'"
-          ng-click="particularBook(RA.isbn[0])">
-          <span style="color: white;">{{RA.author_name[0]}}</span>
+      <span style="overflow-x: scroll;" ng-show="displaySearch">
+        <span style="overflow-x: scroll;" class="proper column is-one-quarter"
+          ng-repeat="RA in searchedBookResult | orderBy: sortValue" ng-click="particularBook(RA.isbn[0])">
           <img style="margin-bottom: 5rem; margin-top: 5rem; color: white; font-size:4vh;"
             src="http://covers.openlibrary.org/b/isbn/{{RA.isbn[0]}}-M.jpg" alt="{{RA.title}}">
         </span>
@@ -42,57 +42,3 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 
-  <div class="dashboard">
-    <div class="Loading" ng-show="isLoading">
-      <p class="TextLoading">(Please Wait &#x1F64F;)Loading...</p>
-    </div>
-
-    <span class="proper" ng-show="displaySearch">
-      <span style="display: flex;" ng-repeat="RA in searchedBookResult" class="column is-one-quarter"
-        ng-click="particularBook(RA.isbn[0])">
-        <img class="image" src="http://covers.openlibrary.org/b/isbn/{{RA.isbn[0]}}-M.jpg">
-      </span>
-    </span>
-  </div>
-</div> -->

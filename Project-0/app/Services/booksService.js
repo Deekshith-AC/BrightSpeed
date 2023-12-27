@@ -3,7 +3,6 @@ app.service("booksService", [
   "$window",
   "$location",
   function ($http, $window, $location) {
-
     // Redirecting part That Should be implemented in all services
     this.logoutService = function () {
       $window.localStorage.clear();
@@ -13,14 +12,15 @@ app.service("booksService", [
     //Searching book implemetation
     this.searchBooks = function (query) {
       return $http
-        .get(`https://openlibrary.org/search.json?q=${query}&limit=30`)
+        .get(
+          `https://openlibrary.org/search.json?q=${query}&fields=author_name,isbn,publish_year,ratings_average,subject,title&limit=30`
+        )
         .then(function (response) {
           return response.data.docs;
         })
         .catch(function (error) {
           console.error("Error searching books:", error);
-          throw error;
-        })
+        });
     };
   },
 ]);
