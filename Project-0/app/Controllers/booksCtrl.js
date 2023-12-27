@@ -36,6 +36,8 @@ app.controller("booksCtrl", [
           .then(function (searchedBookResult) {
             sc.searchedBookResult = searchedBookResult;
             console.log(sc.searchedBookResult);
+            console.log(sc.searchedBookResult[0]);
+            console.log(sc.searchedBookResult[0].author_name[0]);
             sc.displaySearch = true;
             sc.isLoading = false;
           })
