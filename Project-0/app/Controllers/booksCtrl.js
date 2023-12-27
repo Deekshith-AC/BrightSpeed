@@ -23,6 +23,8 @@ app.controller("booksCtrl", [
     sc.searchedBookResult = [];
 
     // Calling the serach Service method from Service and loading screen
+    sc.sortValue = ""
+    sc.sortingBtn = "false";
     sc.searchBookFun = function () {
       sc.isLoading = true;
       sc.displaySearch = false;
@@ -36,10 +38,13 @@ app.controller("booksCtrl", [
           .then(function (searchedBookResult) {
             sc.searchedBookResult = searchedBookResult;
             console.log(sc.searchedBookResult);
-            console.log(sc.searchedBookResult[0]);
-            console.log(sc.searchedBookResult[0].author_name[0]);
             sc.displaySearch = true;
-            sc.isLoading = false;
+            sc.sortingBtn = true;
+            sc.items = ["Author Name"];
+            sc.selectedItem = "Author Name";
+            if(sc.selectedItem == "Author Name"){
+              sc.sortValue = "author_name[0]";
+            }
           })
 
           .catch(function (error) {
@@ -49,7 +54,7 @@ app.controller("booksCtrl", [
             });
             console.error("Error", error);
           })
-          
+
           .finally(function () {
             sc.searchBook = "";
           });

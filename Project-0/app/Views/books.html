@@ -6,6 +6,11 @@
       <!-- Logout and UserName -->
       <ul>
         <li><span class="logout" ng-click="logout()">Logout</span></li>
+        <li>
+          <select ng-show="sortingBtn" ng-model="selectedItem">
+            <option ng-repeat="ite in items" value="">{{ite}}</option>
+          </select>
+        </li>
         <li><span class="uname">{{UserDisplyName}}</span></li>
       </ul>
     </div>
@@ -27,8 +32,9 @@
         <p class="has-text-white">.</p>
       </div>
       <span ng-show="displaySearch">
-        <span class="proper column is-one-quarter" ng-repeat="RA in searchedBookResult"
+        <span class="proper column is-one-quarter" ng-repeat="RA in searchedBookResult | orderBy: sortValue'"
           ng-click="particularBook(RA.isbn[0])">
+          <span style="color: white;">{{RA.author_name[0]}}</span>
           <img style="margin-bottom: 5rem; margin-top: 5rem; color: white; font-size:4vh;"
             src="http://covers.openlibrary.org/b/isbn/{{RA.isbn[0]}}-M.jpg" alt="{{RA.title}}">
         </span>
