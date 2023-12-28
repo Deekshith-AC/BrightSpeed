@@ -7,7 +7,7 @@ app.controller("booksCtrl", [
     if ($window.localStorage.getItem("user") == null) {
       booksService.logoutService();
     }
-
+     sc.SearchImage = true;
     //Logout Implementation
     sc.logout = function () {
       console.log("I am logged out");
@@ -63,8 +63,6 @@ app.controller("booksCtrl", [
       }
       sc.FilteredNewArray = [];
       let arr = sc.searchedBookResult;
-      console.log(arr);
-
       for (let i = 0; i < arr.length; i++) {
         let element = arr[i];
         let rra = element.subject;
@@ -72,7 +70,6 @@ app.controller("booksCtrl", [
         for (let j = 0; j < rra.length; j++) {
           let sub = rra[j];
           sub = sub.toLowerCase();
-          console.log(sub);
           if (sub.includes(sc.filterValue)) {
             sc.FilteredNewArray.push(element);
           }
@@ -80,8 +77,8 @@ app.controller("booksCtrl", [
       }
 
       if (value !== "" && sc.FilteredNewArray.length !== 0) {
-        console.log(sc.FilteredNewArray);
         sc.searchedBookResult = sc.FilteredNewArray;
+        console.log(sc.searchedBookResult);
       }
     };
 
@@ -89,6 +86,8 @@ app.controller("booksCtrl", [
     sc.sortValue = "";
 
     sc.searchBookFun = function () {
+      console.log("Searching book in Controller");
+      sc.SearchImage = true;
       sc.displaySearch = false;
       if (sc.searchBook) {
         console.log("Searching Book function entered in Controller");
@@ -109,6 +108,7 @@ app.controller("booksCtrl", [
             sc.filteringDD = true;
             sc.Fitems = ["General","History", "Fiction", "Mystery", "Finance", "Horror","Adventure",];
             sc.filterValue = "";
+            sc.SearchImage = false;
           })
 
           .catch(function (error) {

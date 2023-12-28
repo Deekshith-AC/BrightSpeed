@@ -2,7 +2,7 @@ app.service("loginService", function ($http, $location) {
 
     // Redirect: To movies page
     this.goTobooks = function () {
-      console.log("logSer");
+      console.log("login Server Reached");
       $location.path("/books");
     };
 

@@ -60,7 +60,7 @@ body {
 
 .nav-bar {
   background-color: black;
-  /* height: 15vh; */
+  height: 15vh;
   position: fixed;
   width: 100%;
   z-index: 999;
@@ -111,6 +111,8 @@ body {
 }
 
 .container {
+  position: relative;
+  top: 20vh;
   padding-bottom: 3rem;
 }
 img {
@@ -183,70 +185,3 @@ img {
 .proper {
   top: 15vh;
 }
-
-/* Loading The Serach result */
-
-/* .dashboard {
-  top: 15vh;
-  overflow-x: auto;
-  position: absolute;
-  width: auto;
-  align-items: center;
-  justify-content: center;
-}
-
-.Loading {
-  position: absolute;
-  z-index: 9999;
-  width: 100%;
-  justify-content: center;
-  background-color: black;
-}
-.TextLoading {
-  color: darkblue;
-  font-size: 10vh;
-  text-align: center;
-}
-
-Search Styling
-
-.proper {
-  overflow-x: auto;
-}
-
-.is-one-quarter {
-  -webkit-box-reflect: below 5px
-    linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.4));
-  -webkit-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-}
-
-.image {
-width: auto;  height: auto;
-  margin-right: 10px;
-}
-
-.image:hover {
-  transform: scale(1.1);
-}
-
-@media (max-width: 768px) {
-  .title_wrapper {
-    text-align: center;
-    left: 0;
-  }
-  .title_wrapper h1 {
-    font-size: 32px !important;
-    width: 100%;
-  }
-  .container {
-    padding: 20px;
-  }
-}
-@media (max-width: 480px) {
-  .column.is-one-quarter img {
-    width: 100%;
-    margin-bottom: 7rem;
-  }
-} */

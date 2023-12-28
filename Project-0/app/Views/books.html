@@ -1,50 +1,44 @@
-<div>
-
-  <!-- Navigation Bar -->
-  <div class="nav-bar">
-    <div class="menu">
-      <!-- Logout and UserName -->
-      <ul>
-        <li><span class="logout" ng-click="logout()">Logout</span></li>
-        <li>
-          <select class="custom-dropdown" ng-show="sortingDD" ng-model="selectedItem">
-            <option ng-repeat="ite in Sitems" value="{{ite}}">{{ite}}</option>
-          </select>
-          <button ng-show="sortingDD" class="SortClkBtn" type="button" ng-click="SortingFun()">sort</button>
-        </li>
-        <li>
-          <select class="custom-dropdown" ng-show="sortingDD" ng-model="selectFltr">
-            <option ng-repeat="ite in Fitems" value="{{ite}}">{{ite}}</option>
-          </select>
-          <button ng-show="sortingDD" class="SortClkBtn" type="button" ng-click="FilterFun(selectFltr)">Filter</button>
-        </li>
-        <li><span class="uname">{{UserDisplyName}}</span></li>
-      </ul>
-    </div>
-    <!-- Search Box -->
-    <div class="search-box">
-      <input type="text" ng-model="searchBook" class="tbox" placeholder="Type to search..." />
-      <button ng-click="searchBookFun()" class="btn"><i class="fas fa-search" style="color: white;"></i></button>
-    </div>
+<!-- Navigation Bar -->
+<div class="nav-bar">
+  <div class="menu">
+    <!-- Logout and UserName -->
+    <ul>
+      <li><span class="logout" ng-click="logout()">Logout</span></li>
+      <li>
+        <select class="custom-dropdown" ng-show="sortingDD" ng-model="selectedItem">
+          <option ng-repeat="sitem in Sitems" value="{{sitem}}">{{sitem}}</option>
+        </select>
+        <button ng-show="sortingDD" class="SortClkBtn" type="button" ng-click="SortingFun()">sort</button>
+      </li>
+      <!-- <li>
+        <select class="custom-dropdown" ng-show="sortingDD" ng-model="selectFltr">
+          <option ng-repeat="fitem in Fitems" value="{{fitem}}">{{fitem}}</option>
+        </select>
+        <button ng-show="sortingDD" class="SortClkBtn" type="button" ng-click="FilterFun(selectFltr)">Filter</button>
+      </li> -->
+      <li><span class="uname">{{UserDisplyName}}</span></li>
+    </ul>
   </div>
+  <!-- Search Box -->
+  <div class="search-box">
+    <input type="text" ng-model="searchBook" class="tbox" placeholder="Type to search..." />
+    <button ng-click="searchBookFun()" class="btn"><i class="fas fa-search" style="color: white;"></i></button>
+  </div>
+</div>
 
 
 
 
 
-
-  <div class="container">
-    <div class="columns is-multiline p-0 pt-6 last">
-      <div class="column is-full">
-        <p class="has-text-white">.</p>
-      </div>
-      <span style="overflow-x: scroll;" ng-show="displaySearch">
-        <span style="overflow-x: scroll;" class="proper column is-one-quarter"
-          ng-repeat="RA in searchedBookResult | orderBy: sortValue" ng-click="particularBook(RA.isbn[0])">
-          <img style="margin-bottom: 5rem; margin-top: 5rem; color: white; font-size:4vh;"
-            src="http://covers.openlibrary.org/b/isbn/{{RA.isbn[0]}}-M.jpg" alt="{{RA.title}}">
-        </span>
+<center ng-show="SearchImage"><img style="position: relative; top: 80px; height: 85vh;" src="/app/Assets/search.jpg" alt=""></center>
+<div class="container">
+  <div class="columns is-multiline p-0 pt-6 last">
+    <span style="overflow-x: scroll;" ng-show="displaySearch">
+      <span style="overflow-x: scroll;" class="proper column is-one-quarter"
+        ng-repeat="RA in searchedBookResult | orderBy: sortValue" ng-click="particularBook(RA.isbn[0])">
+        <img style="margin-bottom: 5rem; margin-top: 5rem; color: white; font-size:4vh;"
+          src="http://covers.openlibrary.org/b/isbn/{{RA.isbn[0]}}-M.jpg" alt="{{RA.title}}">
       </span>
-    </div>
+    </span>
   </div>
 </div>

@@ -11,6 +11,7 @@ app.service("booksService", [
 
     //Searching book implemetation
     this.searchBooks = function (query) {
+      console.log("Searching books function Entered");
       return $http
         .get(
           `https://openlibrary.org/search.json?q=${query}&fields=author_name,isbn,publish_year,ratings_average,subject,title&limit=30`
