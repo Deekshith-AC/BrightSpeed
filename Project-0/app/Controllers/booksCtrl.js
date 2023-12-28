@@ -45,47 +45,39 @@ app.controller("booksCtrl", [
     sc.filteringDD = false;
 
     sc.FilterFun = function (value) {
-
-      sc.FilteredNewArray = []
-      sc.searchedBookResult.forEach(element => {
-        sc.ResultEachObj = element.subject
-        sc.ResultEachObj.forEach( sub => {
-          if(value == sub){
-            
-          }
-        } );
-        
-      });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       console.log(sc.selectFltr);
-      if (sc.selectFltr == "History") {
+      if (value == "History") {
         sc.filterValue = "history";
-      } else if (sc.selectFltr == "Fiction") {
+      } else if (value == "Fiction") {
         sc.filterValue = "fiction";
-      } else if (sc.selectedItem == "Mystery") {
+      } else if (value == "Mystery") {
         sc.filterValue = "mystery";
-      } else if (sc.selectedItem == "Horror") {
+      } else if (value == "Horror") {
         sc.filterValue = "horror";
-      } else if (sc.selectedItem == "Finance") {
+      } else if (value == "Finance") {
         sc.filterValue = "finance";
+      }
+      sc.FilteredNewArray = [];
+      let arr = sc.searchedBookResult;
+      console.log(arr);
+
+      for (let i = 0; i < arr.length; i++) {
+        let element = arr[i];
+        let rra = element.subject;
+
+        for (let j = 0; j < rra.length; j++) {
+          let sub = rra[j];
+          sub = sub.toLowerCase();
+          console.log(sub);
+          if (sub.includes(sc.filterValue)) {
+            sc.FilteredNewArray.push(element);
+          }
+        }
+      }
+
+      if (value !== "" && sc.FilteredNewArray.length !== 0) {
+        console.log(sc.FilteredNewArray);
+        sc.searchedBookResult = sc.FilteredNewArray;
       }
     };
 

@@ -12,6 +12,12 @@
           </select>
           <button ng-show="sortingDD" class="SortClkBtn" type="button" ng-click="SortingFun()">sort</button>
         </li>
+        <li>
+          <select class="custom-dropdown" ng-show="sortingDD" ng-model="selectFltr">
+            <option ng-repeat="ite in Fitems" value="{{ite}}">{{ite}}</option>
+          </select>
+          <button ng-show="sortingDD" class="SortClkBtn" type="button" ng-click="FilterFun(selectFltr)">Filter</button>
+        </li>
         <li><span class="uname">{{UserDisplyName}}</span></li>
       </ul>
     </div>
