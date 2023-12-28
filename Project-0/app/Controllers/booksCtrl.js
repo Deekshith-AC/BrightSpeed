@@ -45,7 +45,7 @@ app.controller("booksCtrl", [
     sc.filteringDD = false;
 
     sc.FilterFun = function (value) {
-      console.log(sc.selectFltr);
+      console.log(value);
       if (value == "History") {
         sc.filterValue = "history";
       } else if (value == "Fiction") {
@@ -56,6 +56,10 @@ app.controller("booksCtrl", [
         sc.filterValue = "horror";
       } else if (value == "Finance") {
         sc.filterValue = "finance";
+      } else if (value == "Adventure") {
+        sc.filterValue = "adventure";
+      } else if (value == "General") {
+        sc.filterValue = "general";
       }
       sc.FilteredNewArray = [];
       let arr = sc.searchedBookResult;
@@ -103,7 +107,7 @@ app.controller("booksCtrl", [
             sc.selectedItem = "Title";
             //filter
             sc.filteringDD = true;
-            sc.Fitems = ["History", "Fiction", "Mystery", "Finance", "Horror"];
+            sc.Fitems = ["General","History", "Fiction", "Mystery", "Finance", "Horror","Adventure",];
             sc.filterValue = "";
           })
 
