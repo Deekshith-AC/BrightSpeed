@@ -7,7 +7,7 @@ app.controller("booksCtrl", [
     if ($window.localStorage.getItem("user") == null) {
       booksService.logoutService();
     }
-     sc.SearchImage = true;
+    sc.SearchImage = true;
     //Logout Implementation
     sc.logout = function () {
       console.log("I am logged out");
@@ -40,45 +40,58 @@ app.controller("booksCtrl", [
     };
 
     //Filtering Function
+    sc.FilteredNewArray = [];
     sc.filterValue = "";
     sc.selectFltr = "";
     sc.filteringDD = false;
+    let element;
+    let rra;
+    let arr;
 
     sc.FilterFun = function (value) {
-      console.log(value);
-      if (value == "History") {
-        sc.filterValue = "history";
-      } else if (value == "Fiction") {
-        sc.filterValue = "fiction";
-      } else if (value == "Mystery") {
-        sc.filterValue = "mystery";
-      } else if (value == "Horror") {
-        sc.filterValue = "horror";
-      } else if (value == "Finance") {
-        sc.filterValue = "finance";
-      } else if (value == "Adventure") {
-        sc.filterValue = "adventure";
-      } else if (value == "General") {
-        sc.filterValue = "general";
-      }
-      sc.FilteredNewArray = [];
-      let arr = sc.searchedBookResult;
-      for (let i = 0; i < arr.length; i++) {
-        let element = arr[i];
-        let rra = element.subject;
-
-        for (let j = 0; j < rra.length; j++) {
-          let sub = rra[j];
-          sub = sub.toLowerCase();
-          if (sub.includes(sc.filterValue)) {
-            sc.FilteredNewArray.push(element);
+      try {
+        sc.FilteredNewArray = [] 
+        sc.displayFilter = true;
+        sc.displaySearch = false;
+        if (value !== "" && sc.FilteredNewArray.length !== 0) {
+          sc.searchedBookResultF = sc.FilteredNewArray;
+          console.log(sc.searchedBookResultF);
+        }
+        console.log(value);
+        if (value == "History") {
+          sc.filterValue = "history";
+        } else if (value == "Fiction") {
+          sc.filterValue = "fiction";
+        } else if (value == "Mystery") {
+          sc.filterValue = "mystery";
+        } else if (value == "Horror") {
+          sc.filterValue = "horror";
+        } else if (value == "Finance") {
+          sc.filterValue = "finance";
+        } else if (value == "Adventure") {
+          sc.filterValue = "adventure";
+        } else if (value == "General") {
+          sc.filterValue = "general";
+        }
+        arr = sc.searchedBookResult;
+        if (arr !== undefined) {
+          for (let i = 0; i < arr.length; i++) {
+            element = arr[i];
+            rra = element.subject;
+            console.log(sc.FilteredNewArray);
+            if (rra !== undefined) {
+              for (let j = 0; j < rra.length; j++) {
+                sub = rra[j];
+                sub = sub.toLowerCase();
+                if (sub.includes(sc.filterValue)) {
+                  sc.FilteredNewArray.push(element);
+                }
+              }
+            }
           }
         }
-      }
-
-      if (value !== "" && sc.FilteredNewArray.length !== 0) {
-        sc.searchedBookResult = sc.FilteredNewArray;
-        console.log(sc.searchedBookResult);
+      } catch (error) {
+        console.log("Some Error", error);
       }
     };
 
@@ -86,11 +99,12 @@ app.controller("booksCtrl", [
     sc.sortValue = "";
 
     sc.searchBookFun = function () {
-      console.log("Searching book in Controller");
+      sc.searchedBookResult = []
+      // console.log("Searching book in Controller");
       sc.SearchImage = true;
       sc.displaySearch = false;
       if (sc.searchBook) {
-        console.log("Searching Book function entered in Controller");
+        // console.log("Searching Book function entered in Controller");
         console.log(sc.searchBook);
 
         booksService
@@ -104,19 +118,24 @@ app.controller("booksCtrl", [
             sc.sortingDD = true;
             sc.Sitems = ["Title", "Author Name", "Year", "Rating"];
             sc.selectedItem = "Title";
-            //filter
-            sc.filteringDD = true;
-            sc.Fitems = ["General","History", "Fiction", "Mystery", "Finance", "Horror","Adventure",];
+            sc.Fitems = [
+              "General",
+              "History",
+              "Fiction",
+              "Mystery",
+              "Finance",
+              "Horror",
+              "Adventure",
+            ];
             sc.filterValue = "";
-            sc.SearchImage = false;
+            sc.SearchImage = false;e;
           })
 
-          .catch(function (error) {
+          .catch(function () {
             sc.searchedBookResult.push({
               title:
                 "Sorry There is SomeThing Error in Finding Book You Searched",
             });
-            console.error("Error", error);
           })
 
           .finally(function () {
